@@ -1,82 +1,60 @@
 package com.examly.springapp.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "carts")
+@Table(name="cart")
 public class CartModel {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private String productId;
+	private String userId;
+	private String productName;
+	private String quantity;
 	
-	@Column(name = "prod_id")
-	private String cartItemId;
-	
-	@OneToOne(mappedBy = "cart")
-	private UserModel userId;
-	
-	@Column(name = "product_name")
-	private String ProductName;
-	
-	@Column(name = "qty")
-	private int Quantity;
-	
-	@Column(name = "price")
-	private String Price;
-	
-	public CartModel() {}
-	
-	public CartModel(String cartItemId, UserModel userId, String productName, int quantity, String price) {
-		this.cartItemId = cartItemId;
+	public CartModel() {
+
+	}
+
+	public CartModel(String productId, String userId, String productName, String quantity) {
+		super();
+		this.productId = productId;
 		this.userId = userId;
-		ProductName = productName;
-		Quantity = quantity;
-		Price = price;
+		this.productName = productName;
+		this.quantity = quantity;
 	}
 
-	public int getId() {
-		return this.id;
+	public String getProductId() {
+		return productId;
 	}
 
-	public String getCartItemId() {
-		return cartItemId;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
 
-	public void setCartItemId(String cartItemId) {
-		this.cartItemId = cartItemId;
-	}
-
-	public UserModel getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(UserModel userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
 	public String getProductName() {
-		return ProductName;
+		return productName;
 	}
 
 	public void setProductName(String productName) {
-		ProductName = productName;
+		this.productName = productName;
 	}
 
-	public int getQuantity() {
-		return Quantity;
+	public String getQuantity() {
+		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
-		Quantity = quantity;
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
 	}
 
-	public String getPrice() {
-		return Price;
-	}
-
-	public void setPrice(String price) {
-		Price = price;
-	}
-	
 }

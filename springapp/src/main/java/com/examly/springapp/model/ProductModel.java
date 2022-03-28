@@ -1,96 +1,80 @@
 package com.examly.springapp.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
-@Table(name = "products")
+@Table(name="products")
 public class ProductModel {
+
+	public ProductModel() {
+		
+	}
+	public ProductModel(String productId, String topicName, String description,String imageUrl, String price, String quantity) {
+		super();
+		this.productId = productId;
+		this.productName = topicName;
+		this.description = description;
+		this.imageUrl = imageUrl;
+		this.price=price;
+		this.quantity=quantity;
+	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int productId;
-	
-	@Column(name = "image_url")
-	private String imageUrl;
-	
-	@Column(name = "product_name")
+	@Column(name="product_Id")
+	private String productId;
+	@Column(name="product_Name")
 	private String productName;
-	
-	@Column(name = "price")
-	private String price;
-	
-	@Column(name = "description")
+	@Column(name="descriptions")
 	private String description;
-	
-	@Column(name = "quantity")
+	@Column(name="image_Url")
+	private String imageUrl;
+	@Column(name="price")
+	private String price;
+	@Column(name="quantity")
 	private String quantity;
 	
-	public ProductModel() {}
-	
-	public ProductModel(int productId, String imageUrl, String productName, String price, String description,
-			String quantity) {
-		this.productId = productId;
-		this.imageUrl = imageUrl;
-		this.productName = productName;
-		this.price = price;
-		this.description = description;
-		this.quantity = quantity;
-	}
-	
-	public int getProductId() {
-		return productId;
-	}
-	
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
 	public String getImageUrl() {
 		return imageUrl;
 	}
-
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
 	public String getPrice() {
 		return price;
 	}
-
 	public void setPrice(String price) {
 		this.price = price;
 	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public String getQuantity() {
 		return quantity;
 	}
-
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
-
-	@Override
-	public String toString() {
-		return "ProductModel [productId=" + productId + ", imageUrl=" + imageUrl + ", productName=" + productName
-				+ ", price=" + price + ", description=" + description + ", quantity=" + quantity + "]";
+	public String getProductId() {
+		return productId;
 	}
-	
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
 	
 }

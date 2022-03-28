@@ -1,138 +1,124 @@
-const resemble = require('resemblejs');
 const puppeteer = require('puppeteer');
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    try{
+    await page.goto('https://8081-ebaadaebdaebdbdebcfdcceffaadfba.examlyiopb.examly.io/');
+    await page.setViewport({
+      width:1200,
+      height:800,
+    })
+      await page.click('#signupLink');
+      await page.waitForNavigation();
+      await page.type('#email', 'test@gmail.com');
+      await page.type('#username', 'testuser');
+      await page.type('#mobileNumber', '9876543210');
+      await page.type('#password', 'Test@123');
+      await page.type('#confirmPassword', 'Test@123');
+      await page.click('#submitButton');
+      await page.waitForNavigation();
+      await page.waitForSelector('#loginBox',{timeout:3000});
+      console.log('TESTCASE:FE_Signup:success');
+    }
+     catch(e){
+      console.log('TESTCASE:FE_Signup:failure');
+    }finally{
+      await page.close();
+      await browser.close();
+    }
+    
+})();
+
+ 
 
 (async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-    await page.goto('https://8081-cbebefafbdcadbacfaedbecbdaefabdea.examlyiopb.examly.io/login');
+    await page.goto('https://8081-ebaadaebdaebdbdebcfdcceffaadfba.examlyiopb.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
     })
-      await page.type('[data-testid="email"]', 'user@gmail.com');
-    await page.type('[data-testid="password"]', '123');
-
-    await page.click('[data-testid="submitButton"]');
-    //await page.screenshot({path: 'example.png'});
-      await page.waitForSelector('[data-testid="userNavbar"]',{timeout:1500});
-      console.log('TESTCASE:test_case6:success');
+      await page.type('#email', 'test@gmail.com');
+      await page.type('#password', 'Test@123');
+      await page.click('#loginButton');
+      await page.waitForNavigation();
+      await page.waitForSelector('#homePage',{timeout:3000});
+      console.log('TESTCASE:FE_login:success');
     }
      catch(e){
-      console.log('TESTCASE:test_case6:failure');
+      console.log('TESTCASE:FE_login:failure');
     }finally{
       await page.close();
       await browser.close();
     }
     
-  })();
+})();
 
+ 
 
-  (async () => {
-
+(async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    try {
-      await page.goto('https://8081-cbebefafbdcadbacfaedbecbdaefabdea.examlyiopb.examly.io/login');
+    try{
+    await page.goto('https://8081-ebaadaebdaebdbdebcfdcceffaadfba.examlyiopb.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
     })
-    await page.type('[data-testid="email"]', 'admin');
-    await page.type('[data-testid="password"]', 'admin');
-    await page.click('[data-testid="submitButton"]');
-    await page.waitForSelector('[data-testid="adminNavbar"]',{timeout:1500});
-    console.log('TESTCASE:test_case7:success');
-    } catch(e) {
-      console.log('TESTCASE:test_case7:failure');
+    await page.type('#email', 'test@gmail.com');
+    await page.type('#password', 'Test@123');
+    await page.click('#loginButton');
+      await page.waitForNavigation();
+      await page.waitForSelector('#homeButton',{timeout:3000});
+      await page.click('#cartButton');
+      await page.waitForSelector('#cartPage',{timeout:3000});
+      await page.click('#myOrdersButton');
+      await page.waitForSelector('#myOrdersPage',{timeout:3000});
+      await page.click('#logoutButton');
+      await page.waitForSelector('#loginBox',{timeout:3000});
+      console.log('TESTCASE:FE_userOperation:success');
+    }
+     catch(e){
+      console.log('TESTCASE:FE_userOperation:failure');
     }finally{
       await page.close();
       await browser.close();
     }
-  })();
-
-  (async () => {
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    try {
-      await page.goto('https://8081-cbebefafbdcadbacfaedbecbdaefabdea.examlyiopb.examly.io/login');
-      await page.setViewport({
-        width:1200,
-        height:800,
-      })
-      await page.type('[data-testid="email"]', 'test@iamneo.ai');
-    await page.type('[data-testid="password"]', 'neo');
-    await page.click('[data-testid="submitButton"]');
-    await page.waitForNavigation();
-    await page.waitForSelector('[data-testid="mobileAdminCartButton"]' ,{timeout:1500});
-    await page.click('[data-testid="mobileAdminCartButton"]');
-      // await page.screenshot({path: 'example2.png'});
-      mobileAdminCartBody
-      await page.waitForSelector('[data-testid="mobileAdminCartBody"]' ,{timeout:1500});
-      await page.waitForSelector('[data-testid="mobileAdminCartBody"]' ,{timeout:1500});
-      console.log('TESTCASE:test_case8:success');
-    } catch(e) {
-      console.log('TESTCASE:test_case8:failure');
-    }finally{
-      await page.close();
-  await browser.close();
-    }
-  })();
-
-  (async () => {
-
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    try {
-      await page.goto('https://8081-cbebefafbdcadbacfaedbecbdaefabdea.examlyiopb.examly.io/login');
-      await page.setViewport({
-        width:1200,
-        height:800,
-      })
-      await page.type('[data-testid="email"]', 'test@iamneo.ai');
-    await page.type('[data-testid="password"]', 'neo');
-    await page.click('[data-testid="submitButton"]');
-    await page.waitForNavigation();
     
-    await page.waitForSelector('[data-testid="mobileAdminOrderButton"]' ,{timeout:1500});
-    await page.click('[data-testid="mobileAdminOrderButton"]');
-      // await page.screenshot({path: 'example3.png'});
-      await page.waitForSelector('[data-testid="mobileAdminOrderBody"]' ,{timeout:1500});
-      console.log('TESTCASE:test_case9:success');
-    } catch(e) {
-      console.log('TESTCASE:test_case9:failure');
-    }finally{
-      await page.close();
-  await browser.close();
-    }
-  })();
- 
-  (async () => {
+})();
 
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    
-    
-    try {
-      await page.goto('https://8081-cbebefafbdcadbacfaedbecbdaefabdea.examlyiopb.examly.io/login');
-      await page.setViewport({
-        width:1200,
-        height:800,
-      })
-      await page.type('[data-testid="email"]', 'test@iamneo.ai');
-    await page.type('[data-testid="password"]', 'neo');
-    await page.click('[data-testid="submitButton"]');
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  try{
+  await page.goto('https://8081-ebaadaebdaebdbdebcfdcceffaadfba.examlyiopb.examly.io/');
+  await page.setViewport({
+    width:1200,
+    height:800,
+  })
+    await page.type('#email', 'admin@gmail.com');
+    await page.type('#password', 'Admin@123');
+    await page.click('#loginButton');
     await page.waitForNavigation();
-    await page.waitForSelector('[data-testid="logoutButton"]',{timeout:2000});
-      await page.click('[data-testid="logoutButton"]');
-      // await page.screenshot({path: 'example4.png'});
-      await page.waitForSelector('[data-testid="loginBox"]',{timeout:1000});
-      console.log('TESTCASE:test_case10:success');
-    } catch(e) {
-      console.log('TESTCASE:test_case10:failure');
-    }finally{
-      await page.close();
-  await browser.close();
-    }
-  })();
+    await page.waitForSelector('#adminHomePage',{timeout:3000});
+    await page.click('#addButton');
+    await page.waitForSelector('#addProductPage',{timeout:3000});
+    await page.type('#enterProductName', 'beetroot');
+    await page.type('#enterPrice', '30');
+    await page.type('#enterDescription', 'fresh vegetables');
+    await page.type('#enterImageurl', 'beetroot.com');
+    await page.type('#enterQuantity', '25');
+    await page.click('#addButton');
+    await page.waitForSelector('#adminHomePage',{timeout:3000});
+    console.log('TESTCASE:FE_admin_addProduct:success');
+  }
+   catch(e){
+    console.log('TESTCASE:FE_admin_addProduct:failure');
+  }finally{
+    await page.close();
+    await browser.close();
+  }
+  
+})();
