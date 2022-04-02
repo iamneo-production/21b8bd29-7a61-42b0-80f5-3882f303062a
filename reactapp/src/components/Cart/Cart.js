@@ -38,4 +38,7 @@ function Cart() {
     )
 }
 
+
+
 export default Cart;
+//Cart page 
